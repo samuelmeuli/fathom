@@ -74,7 +74,7 @@ Run the container with `docker run -d -p 8080:8080 fathom`.
 
 ### Running
 
-To run [our pre-built Docker image](https://hub.docker.com/r/usefathom/fathom/), run `docker run -d -p 8080:8080 usefathom/fathom:latest`
+To run [our pre-built Docker image](https://hub.docker.com/r/usefathom/fathom/), run `docker run -d -p 8080:8080 samuelmeuli/fathom:latest`
 
 ## Tracking snippet
 
