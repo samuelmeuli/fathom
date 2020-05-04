@@ -270,43 +270,43 @@
 		},
 		{
 			"checksumSHA1": "Hhh/KG88My1ajZQdLA+bhqGmeCo=",
-			"path": "github.com/usefathom/fathom/cmd/fathom",
+			"path": "github.com/samuelmeuli/fathom/cmd/fathom",
 			"revision": "1c2682878eba8a61ac513f90da1913f73a88ca19",
 			"revisionTime": "2018-07-27T06:54:46Z"
 		},
 		{
 			"checksumSHA1": "wFmVhlA6qrZxeI/TYRl4G08KiYc=",
-			"path": "github.com/usefathom/fathom/pkg/aggregator",
+			"path": "github.com/samuelmeuli/fathom/pkg/aggregator",
 			"revision": "1c2682878eba8a61ac513f90da1913f73a88ca19",
 			"revisionTime": "2018-07-27T06:54:46Z"
 		},
 		{
 			"checksumSHA1": "QDeH42w8NilSFfpcjjOi/pGDz1E=",
-			"path": "github.com/usefathom/fathom/pkg/api",
+			"path": "github.com/samuelmeuli/fathom/pkg/api",
 			"revision": "1c2682878eba8a61ac513f90da1913f73a88ca19",
 			"revisionTime": "2018-07-27T06:54:46Z"
 		},
 		{
 			"checksumSHA1": "+kQAroJzFzETI1gonovZVYT2aSQ=",
-			"path": "github.com/usefathom/fathom/pkg/config",
+			"path": "github.com/samuelmeuli/fathom/pkg/config",
 			"revision": "1c2682878eba8a61ac513f90da1913f73a88ca19",
 			"revisionTime": "2018-07-27T06:54:46Z"
 		},
 		{
 			"checksumSHA1": "qGOY5RadJrOyMby2MQ2aXqwvP2k=",
-			"path": "github.com/usefathom/fathom/pkg/datastore",
+			"path": "github.com/samuelmeuli/fathom/pkg/datastore",
 			"revision": "1c2682878eba8a61ac513f90da1913f73a88ca19",
 			"revisionTime": "2018-07-27T06:54:46Z"
 		},
 		{
 			"checksumSHA1": "tx2YKxPaiwu00GbnzXxq72pKx2M=",
-			"path": "github.com/usefathom/fathom/pkg/datastore/sqlstore",
+			"path": "github.com/samuelmeuli/fathom/pkg/datastore/sqlstore",
 			"revision": "1c2682878eba8a61ac513f90da1913f73a88ca19",
 			"revisionTime": "2018-07-27T06:54:46Z"
 		},
 		{
 			"checksumSHA1": "ippSiueOXDP6/eQ1DsjlaUGG0WY=",
-			"path": "github.com/usefathom/fathom/pkg/models",
+			"path": "github.com/samuelmeuli/fathom/pkg/models",
 			"revision": "1c2682878eba8a61ac513f90da1913f73a88ca19",
 			"revisionTime": "2018-07-27T06:54:46Z"
 		},
@@ -519,5 +519,5 @@
 			"revision": ""
 		}
 	],
-	"rootPath": "github.com/usefathom/fathom"
+	"rootPath": "github.com/samuelmeuli/fathom"
 }

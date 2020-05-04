@@ -10,9 +10,9 @@ import (
 	log "github.com/sirupsen/logrus"
 
 	"github.com/mssola/user_agent"
-	"github.com/usefathom/fathom/pkg/aggregator"
-	"github.com/usefathom/fathom/pkg/datastore"
-	"github.com/usefathom/fathom/pkg/models"
+	"github.com/samuelmeuli/fathom/pkg/aggregator"
+	"github.com/samuelmeuli/fathom/pkg/datastore"
+	"github.com/samuelmeuli/fathom/pkg/models"
 )
 
 type Collector struct {
@@ -27,7 +27,7 @@ type Collector struct {
 }
 
 func NewCollector(store datastore.Datastore) *Collector {
-	bufferCap := 100                         // persist every 100 pageviews, see https://github.com/usefathom/fathom/issues/132
+	bufferCap := 100                         // persist every 100 pageviews, see https://github.com/samuelmeuli/fathom/issues/132
 	bufferTimeout := 1000 * time.Millisecond // or every 1000 ms, whichever comes first
 
 	c := &Collector{
@@ -69,7 +69,7 @@ func (c *Collector) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// push pageview onto channel to be inserted (in batch) later
 	c.Pageviews <- pageview
 
-	// indicate that we're not tracking user data, see https://github.com/usefathom/fathom/issues/65
+	// indicate that we're not tracking user data, see https://github.com/samuelmeuli/fathom/issues/65
 	w.Header().Set("Tk", "N")
 
 	// headers to prevent caching
@@ -182,7 +182,7 @@ func shouldCollect(r *http.Request) bool {
 		return false
 	}
 
-	// don't track prerendered pages, see https://github.com/usefathom/fathom/issues/13
+	// don't track prerendered pages, see https://github.com/samuelmeuli/fathom/issues/13
 	if r.Header.Get("X-Moz") == "prefetch" || r.Header.Get("X-Purpose") == "preview" {
 		return false
 	}

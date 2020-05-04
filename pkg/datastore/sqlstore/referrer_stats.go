@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/usefathom/fathom/pkg/models"
+	"github.com/samuelmeuli/fathom/pkg/models"
 )
 
 func (db *sqlstore) GetReferrerStats(siteID int64, date time.Time, hostnameID int64, pathnameID int64) (*models.ReferrerStats, error) {

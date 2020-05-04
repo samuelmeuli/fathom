@@ -6,7 +6,7 @@ To update your existing Fathom installation to the latest version, first rename 
 mv /usr/local/bin/fathom /usr/local/bin/fathom-old
 ```
 
-Then, [download the latest release archive suitable for your system architecture from the releases page](https://github.com/usefathom/fathom/releases/latest) and place it in `/usr/local/bin`.
+Then, [download the latest release archive suitable for your system architecture from the releases page](https://github.com/samuelmeuli/fathom/releases/latest) and place it in `/usr/local/bin`.
 
 ```
 tar -C /usr/local/bin -xzf fathom_$VERSION_$OS_$ARCH.tar.gz

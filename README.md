@@ -2,7 +2,7 @@ Fathom Lite - simple website analytics
 ==============================
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LJ5WZVA9ER9GJ)
-[![Go Report Card](https://goreportcard.com/badge/github.com/usefathom/fathom)](https://goreportcard.com/report/github.com/usefathom/fathom)
+[![Go Report Card](https://goreportcard.com/badge/github.com/samuelmeuli/fathom)](https://goreportcard.com/report/github.com/samuelmeuli/fathom)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/usefathom/fathom/master/LICENSE)
 
 [Fathom Analytics](https://usefathom.com/) is a simpler and more privacy-focused alternative to Google Analytics.
@@ -19,7 +19,7 @@ Fathom respects the privacy of your users and does not collect any personally id
 
 At present, Fathom Analytics Lite is not PECR compliant due to the fact that it uses an anonymous cookie. Our [PRO version](https://usefathom.com) is PECR compliant, and we'll be making changes to this codebase some time in the future to make it compliant.
 
-![Screenshot of the Fathom dashboard](https://github.com/usefathom/fathom/raw/master/assets/src/img/fathom.jpg?v=7)
+![Screenshot of the Fathom dashboard](https://github.com/samuelmeuli/fathom/raw/master/assets/src/img/fathom.jpg?v=7)
 
 ## Lite vs PRO
 
@@ -59,8 +59,8 @@ You can install Fathom on your server by following [our simple instructions](doc
 For getting a development version of Fathom up & running, go through the following steps.
 
 1. Ensure you have [Go](https://golang.org/doc/install#install) and [NPM](https://www.npmjs.com) installed
-1. Download the code: `git clone https://github.com/usefathom/fathom.git $GOPATH/src/github.com/usefathom/fathom` 
 1. Compile the project into an executable: `make build` 
+1. Download the code: `git clone https://github.com/samuelmeuli/fathom.git $GOPATH/src/github.com/samuelmeuli/fathom`
 1. (Optional) Set [custom configuration values](docs/Configuration.md)
 1. (Required) Register a user account: `./fathom user add --email=<email> --password=<password>`
 1. Start the webserver: `./fathom server` and then visit **http://localhost:8080** to access your analytics dashboard

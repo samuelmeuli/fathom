@@ -117,7 +117,7 @@ class SiteSettings extends Component {
 
                     <fieldset style={props.site.unsaved ? 'display: none;' : ''}>
                         <label>Add this code to your website    <small class="right">(site ID = {props.site.trackingId})</small></label>
-                        <textarea ref={this.setTextarea} onFocus={this.handleTextareaClickEvent} readonly="readonly">{`<!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+                        <textarea ref={this.setTextarea} onFocus={this.handleTextareaClickEvent} readonly="readonly">{`<!-- Fathom - simple website analytics - https://github.com/samuelmeuli/fathom -->
 <script>
 (function(f, a, t, h, o, m){
 	a[h]=a[h]||function(){

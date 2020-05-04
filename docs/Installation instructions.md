@@ -2,7 +2,7 @@
 
 To install Fathom on your server: 
 
-1. [Download the latest Fathom release](https://github.com/usefathom/fathom/releases) suitable for your platform.
+1. [Download the latest Fathom release](https://github.com/samuelmeuli/fathom/releases) suitable for your platform.
 2. Extract the archive to `/usr/local/bin`
 
 ```sh
