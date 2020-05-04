@@ -1,10 +1,9 @@
 EXECUTABLE := fathom
 LDFLAGS += -extldflags "-static" -X "main.version=$(shell git describe --tags --always | sed 's/-/+/' | sed 's/^v//')" -X "main.commit=$(shell git rev-parse HEAD)"  -X "main.date=$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 MAIN_PKG := ./main.go
-PACKAGES ?= $(shell go list ./... | grep -v /vendor/)
+PACKAGES ?= $(shell go list ./...)
 ASSET_SOURCES ?= $(shell find assets/src/. -type f)
 GO_SOURCES ?= $(shell find . -name "*.go" -type f)
-GOPATH=$(shell go env GOPATH)
 
 # `make` with no arguments executes this rule
 .PHONY: all
@@ -70,7 +69,7 @@ lint:
 
 .PHONY: test
 test:
-	for PKG in $(PACKAGES); do go test -cover -coverprofile $$GOPATH/src/$$PKG/coverage.out $$PKG || exit 1; done;
+	for PKG in $(PACKAGES); do go test -cover -coverprofile ./coverage.out $$PKG || exit 1; done;
 
 .PHONY: referrer-spam-blacklist
 referrer-spam-blacklist:
