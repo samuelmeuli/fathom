@@ -11,7 +11,7 @@ func TestConfigDSN(t *testing.T) {
 		User:     "john",
 		Password: "foo",
 	}
-	e := fmt.Sprintf("user=%s password=%s", c.URL, c.Password)
+	e := fmt.Sprintf("user=%s password=%s", c.User, c.Password)
 	if v := c.DSN(); v != e {
 		t.Errorf("Invalid DSN. Expected %s, got %s", e, v)
 	}
@@ -22,7 +22,7 @@ func TestConfigDSN(t *testing.T) {
 		Password: "foo",
 		SSLMode:  "disable",
 	}
-	e = fmt.Sprintf("user=%s password=%s sslmode=%s", c.URL, c.Password, c.SSLMode)
+	e = fmt.Sprintf("user=%s password=%s sslmode=%s", c.User, c.Password, c.SSLMode)
 	if v := c.DSN(); v != e {
 		t.Errorf("Invalid DSN. Expected %s, got %s", e, v)
 	}
