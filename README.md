@@ -17,8 +17,8 @@ To start tracking, create a site in your Fathom dashboard and copy the tracking 
 - **[Installing Fathom](docs/installing-fathom.md)**
 - **[Updating Fathom](docs/updating-fathom.md)**
 - **[Configuration](docs/configuration.md)**
-- [FAQ](docs/faq.md)
 - [Fathom with Docker](docs/docker.md)
+- [FAQ](docs/faq.md)
 
 ## Development
 

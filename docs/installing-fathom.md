@@ -14,22 +14,20 @@ chmod +x /usr/local/bin/fathom
 
 3. Confirm that Fathom is installed properly by running `fathom --version`.
 
-_Fathom also provides a Docker image. Read on [here](docker.md) fore details._
+_Fathom also provides a Docker image. See [here](docker.md) for details._
 
 ## Configuration
 
-> This step is optional. By default, Fathom will use a SQLite database file in the current working directory.
+Configuring Fathom is optional. By default, Fathom will use a SQLite database file in the current working directory.
 
-To run the Fathom web server we will need to [configure Fathom](configuration.md) so that it can connect with your database of choice.
-
-Let's create a new directory where we can store our configuration file and SQLite database:
+Let's create a new directory where we can store our SQLite database and optionally our configuration file:
 
 ```sh
 mkdir ~/my-fathom-site
 cd ~/my-fathom-site
 ```
 
-Then, create a file named `.env` with the following content:
+If necessary, create a configuration file named `.env`, with the following content:
 
 ```conf
 FATHOM_SERVER_ADDR=9000
@@ -46,7 +44,7 @@ Check out the [configuration docs](configuration.md) for all possible options.
 
 ## Register your admin user
 
-To register a user in the Fathom instance we just created, run the following command from the directory with your `.env` file:
+To register a user in the Fathom instance we just created, run the following command from the directory with your configuration file:
 
 ```sh
 fathom user add --email="your@email.com" --password="strong-password"
@@ -84,7 +82,7 @@ If you now run `fathom server` again, you should be able to access your Fathom i
 
 ## Automatically starting Fathom on boot
 
-To ensure the Fathom web server keeps running whenever the system reboots, we should use a process manager. Ubuntu 16.04 and later ship with systemd.
+To ensure that the Fathom web server keeps running whenever the system reboots, we should use a process manager. Ubuntu 16.04 and later ship with systemd.
 
 Create a new file called `/etc/systemd/system/my-fathom-site.service` with the following content. Replace `$USER` with your actual username and `my-fathom-site` with your site's name:
 
@@ -121,7 +119,7 @@ systemctl start my-fathom-site
 
 ## SSL certificate
 
-With [Certbot](https://certbot.eff.org/docs) for Let's Encrypt installed, adding an SSL certificate to your Fathom installation is as easy as running the following command.
+With [Certbot](https://certbot.eff.org/docs) for Let's Encrypt installed, adding an SSL certificate to your Fathom installation is as easy as running the following command:
 
 ```sh
 certbot --nginx -d my-fathom-site.com
