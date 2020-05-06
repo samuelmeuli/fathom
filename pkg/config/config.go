@@ -53,11 +53,13 @@ func Parse() *Config {
 		log.Fatalf("Error parsing configuration from environment: %s", err)
 	}
 
+	// Validate database URL and derive database driver from it
 	if cfg.Database.URL != "" {
-		_, err := url.Parse(cfg.Database.URL)
+		parsedURL, err := url.Parse(cfg.Database.URL)
 		if err != nil {
 			log.Fatalf("Error parsing DATABASE_URL from environment: %s", err)
 		}
+		cfg.Database.Driver = parsedURL.Scheme
 	}
 
 	// alias sqlite to sqlite3
