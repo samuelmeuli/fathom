@@ -17,10 +17,11 @@ func TestLoadEnv(t *testing.T) {
 	}
 
 	data := []byte("FATHOM_DATABASE_DRIVER=\"sqlite3\"")
-	ioutil.WriteFile("env_values", data, 0644)
-	defer os.Remove("env_values")
+	tmpfile, _ := ioutil.TempFile("", ".env")
+	defer os.Remove(tmpfile.Name())
+	tmpfile.Write(data)
 
-	LoadEnv("env_values")
+	LoadEnv(tmpfile.Name())
 
 	got := os.Getenv("FATHOM_DATABASE_DRIVER")
 	if got != "sqlite3" {
@@ -51,10 +52,11 @@ func TestParse(t *testing.T) {
 
 func TestDatabaseURL(t *testing.T) {
 	data := []byte("FATHOM_DATABASE_URL=\"postgres://dbuser:dbsecret@dbhost:1234/dbname\"")
-	ioutil.WriteFile("env_values", data, 0644)
-	defer os.Remove("env_values")
+	tmpfile, _ := ioutil.TempFile("", ".env")
+	defer os.Remove(tmpfile.Name())
+	tmpfile.Write(data)
 
-	LoadEnv("env_values")
+	LoadEnv(tmpfile.Name())
 	cfg := Parse()
 	driver := "postgres"
 	url := "postgres://dbuser:dbsecret@dbhost:1234/dbname"
