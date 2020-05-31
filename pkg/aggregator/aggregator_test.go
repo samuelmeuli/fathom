@@ -7,12 +7,12 @@ import (
 
 func TestParseReferrer(t *testing.T) {
 	testsValid := map[string]*url.URL{
-		"https://www.usefathom.com/?utm_source=github": &url.URL{
+		"https://www.usefathom.com/?utm_source=github": {
 			Scheme: "https",
 			Host:   "www.usefathom.com",
 			Path:   "/",
 		},
-		"https://www.usefathom.com/privacy/amp/?utm_source=github": &url.URL{
+		"https://www.usefathom.com/privacy/amp/?utm_source=github": {
 			Scheme: "https",
 			Host:   "www.usefathom.com",
 			Path:   "/privacy/",

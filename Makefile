@@ -45,7 +45,7 @@ clean:
 
 .PHONY: fmt
 fmt:
-	go fmt $(PACKAGES)
+	gofmt -l -w -s .
 
 .PHONY: vet
 vet:

@@ -15,7 +15,7 @@ var userCmd = cli.Command{
 	Usage:  "manage registered admin users",
 	Action: userAdd,
 	Subcommands: []cli.Command{
-		cli.Command{
+		{
 			Name:    "add",
 			Aliases: []string{"register"},
 			Action:  userAdd,
@@ -34,7 +34,7 @@ var userCmd = cli.Command{
 				},
 			},
 		},
-		cli.Command{
+		{
 			Name:   "delete",
 			Action: userDelete,
 			Flags: []cli.Flag{
