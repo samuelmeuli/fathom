@@ -17,10 +17,6 @@ $(EXECUTABLE): $(GO_SOURCES) assets/build
 
 .PHONY: docker
 docker: $(GO_SOURCES)
-	# Make sure `packr` is installed
-	@which packr > /dev/null; if [ $$? -ne 0 ]; then \
-		go get -u github.com/gobuffalo/packr/packr; \
-	fi
 	GOOS=linux GOARCH=amd64 packr build -v -ldflags '-w $(LDFLAGS)' -o $(EXECUTABLE) $(MAIN_PKG)
 
 .PHONY: npm
@@ -35,10 +31,6 @@ assets/dist: $(ASSET_SOURCES) npm
 
 .PHONY: clean
 clean:
-	# Make sure `packr` is installed
-	@which packr > /dev/null; if [ $$? -ne 0 ]; then \
-		go get -u github.com/gobuffalo/packr/packr; \
-	fi
 	go clean -i ./...
 	packr clean
 	rm -rf $(EXECUTABLE)
@@ -53,18 +45,10 @@ vet:
 
 .PHONY: errcheck
 errcheck:
-	# Make sure `errcheck` is installed
-	@which errcheck > /dev/null; if [ $$? -ne 0 ]; then \
-		go get -u github.com/kisielk/errcheck; \
-	fi
 	errcheck $(PACKAGES)
 
 .PHONY: lint
 lint:
-	# Make sure `golint` is installed
-	@which golint > /dev/null; if [ $$? -ne 0 ]; then \
-		go get -u golang.org/x/lint/golint; \
-	fi
 	for PKG in $(PACKAGES); do golint -set_exit_status $$PKG || exit 1; done;
 
 .PHONY: test
