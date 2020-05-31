@@ -10,3 +10,6 @@ fathom
 
 assets/build
 assets/dist
+
+# Referrer spam blacklist
+pkg/aggregator/data/

@@ -4,19 +4,33 @@ MAIN_PKG := ./main.go
 PACKAGES ?= $(shell go list ./...)
 ASSET_SOURCES ?= $(shell find assets/src/. -type f)
 GO_SOURCES ?= $(shell find . -name "*.go" -type f)
+BLACKLIST_DIR := pkg/aggregator/data/
+BLACKLIST_TXT := $(BLACKLIST_DIR)blacklist.txt
 
 # `make` with no arguments executes this rule
 .PHONY: all
 all: build
 
+.PHONY: download
+download:
+	go mod download
+
+.PHONY: install-tools
+install-tools: download
+	cat tools.go | grep _ | awk -F'"' '{print $$2}' | xargs -tI % go install %
+
 .PHONY: build
 build: $(EXECUTABLE)
 
-$(EXECUTABLE): $(GO_SOURCES) assets/build
+$(EXECUTABLE): $(BLACKLIST_TXT) assets/build $(GO_SOURCES)
 	go build -o $@ $(MAIN_PKG)
 
+$(BLACKLIST_TXT):
+	mkdir -p $(BLACKLIST_DIR)
+	wget https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt -O $(BLACKLIST_TXT)
+
 .PHONY: docker
-docker: $(GO_SOURCES)
+docker: $(BLACKLIST_TXT) $(GO_SOURCES)
 	GOOS=linux GOARCH=amd64 packr build -v -ldflags '-w $(LDFLAGS)' -o $(EXECUTABLE) $(MAIN_PKG)
 
 .PHONY: npm
@@ -54,8 +68,3 @@ lint:
 .PHONY: test
 test:
 	for PKG in $(PACKAGES); do go test -cover -coverprofile ./coverage.out $$PKG || exit 1; done;
-
-.PHONY: referrer-spam-blacklist
-referrer-spam-blacklist:
-	wget https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt -O pkg/aggregator/data/blacklist.txt
-	go-bindata -prefix "pkg/aggregator/data/" -o pkg/aggregator/bindata.go -pkg aggregator pkg/aggregator/data/

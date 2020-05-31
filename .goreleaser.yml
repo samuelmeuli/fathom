@@ -1,7 +1,6 @@
 before:
   hooks:
-    - go mod download
-    - make assets/dist
+    - make install-tools pkg/aggregator/data/blacklist.txt assets/dist
 
 builds:
   - env:

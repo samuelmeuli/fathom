@@ -11,7 +11,7 @@ RUN go get -u github.com/gobuffalo/packr/packr
 WORKDIR /go/src/github.com/samuelmeuli/fathom
 COPY . /go/src/github.com/samuelmeuli/fathom
 COPY --from=asset-builder /app/assets/build assets/build
-RUN make docker
+RUN make install-tools docker
 
 FROM alpine:3.11
 EXPOSE 8080

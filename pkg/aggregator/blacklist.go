@@ -3,6 +3,7 @@ package aggregator
 import (
 	"bufio"
 	"bytes"
+	"github.com/gobuffalo/packr"
 	"strings"
 )
 
@@ -11,14 +12,9 @@ type blacklist struct {
 }
 
 func newBlacklist() (*blacklist, error) {
-	var err error
-	b := &blacklist{}
-	b.data, err = Asset("blacklist.txt")
-	if err != nil {
-		return nil, err
-	}
-
-	return b, nil
+	box := packr.NewBox("data")
+	blacklistData, err := box.Find("blacklist.txt")
+	return &blacklist{data: blacklistData}, err
 }
 
 // Has returns true if the given domain appears on the blacklist
