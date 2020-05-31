@@ -4,8 +4,8 @@ import (
 	"strings"
 	"time"
 
-	log "github.com/sirupsen/logrus"
 	"github.com/samuelmeuli/fathom/pkg/models"
+	log "github.com/sirupsen/logrus"
 )
 
 // GetPageview selects a single pageview by its string ID

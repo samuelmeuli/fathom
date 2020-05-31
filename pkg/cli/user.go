@@ -4,10 +4,10 @@ import (
 	"errors"
 	"fmt"
 
-	log "github.com/sirupsen/logrus"
-	"github.com/urfave/cli"
 	"github.com/samuelmeuli/fathom/pkg/datastore"
 	"github.com/samuelmeuli/fathom/pkg/models"
+	log "github.com/sirupsen/logrus"
+	"github.com/urfave/cli"
 )
 
 var userCmd = cli.Command{

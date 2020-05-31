@@ -6,10 +6,10 @@ import (
 	"strings"
 	"time"
 
-	log "github.com/sirupsen/logrus"
-	"github.com/urfave/cli"
 	"github.com/samuelmeuli/fathom/pkg/config"
 	"github.com/samuelmeuli/fathom/pkg/datastore"
+	log "github.com/sirupsen/logrus"
+	"github.com/urfave/cli"
 )
 
 type App struct {

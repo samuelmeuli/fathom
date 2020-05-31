@@ -8,8 +8,8 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/kelseyhightower/envconfig"
-	log "github.com/sirupsen/logrus"
 	"github.com/samuelmeuli/fathom/pkg/datastore/sqlstore"
+	log "github.com/sirupsen/logrus"
 )
 
 // Config wraps the configuration structs for the various application parts
