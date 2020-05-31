@@ -63,7 +63,7 @@ errcheck:
 lint:
 	# Make sure `golint` is installed
 	@which golint > /dev/null; if [ $$? -ne 0 ]; then \
-		go get -u github.com/golang/lint/golint; \
+		go get -u golang.org/x/lint/golint; \
 	fi
 	for PKG in $(PACKAGES); do golint -set_exit_status $$PKG || exit 1; done;
 
